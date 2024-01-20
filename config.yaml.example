@@ -1,0 +1,6 @@
+app:
+  port: 8080
+azure:
+  key: your_key
+  region: your_region
+  default_voice: zh-CN-henan-YundengNeural
