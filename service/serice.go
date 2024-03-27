@@ -13,6 +13,7 @@ import (
 
 type SpeechRequest struct {
 	Content      string
+	D            time.Duration
 	VoiceName    string
 	FileName     string
 	ResponseChan chan SpeechResponse
@@ -21,6 +22,7 @@ type SpeechRequest struct {
 type SpeechResponse struct {
 	Error    string
 	FileName string
+	Duration time.Duration
 }
 
 var WaitChan chan SpeechRequest
@@ -129,6 +131,7 @@ func Speek() {
 
 				req.ResponseChan <- SpeechResponse{
 					FileName: fileName,
+					Duration: outcome.Result.AudioDuration,
 				}
 
 			} else {

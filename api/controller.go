@@ -122,7 +122,8 @@ func Speech(c *gin.Context) {
 
 	os.Remove(rsp.FileName)
 
-
-	
-	c.JSON(http.StatusOK, voiceBase64)
+	c.JSON(http.StatusOK, gin.H{
+		"base64":   voiceBase64,
+		"duration": rsp.Duration,
+	})
 }
